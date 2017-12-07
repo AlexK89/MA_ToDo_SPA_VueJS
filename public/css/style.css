@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #747e9a;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.todo_app {
+    position: relative;
+    width: 450px;
+    height: 700px;
+    margin: 100px auto;
+    overflow: scroll;
+    background-color: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+h2 {
+    color: #747e9a;
+}
+
+.add_task {
+    width: 100%;
+    padding: 10px 20px;
+    color: #ffffff;
+    line-height: 30px;
+    background: linear-gradient(141deg, #ffb0be 0%, #ffc2a1 75%);
+    position: absolute;
+    z-index: 10;
+}
+
+.add_task p {
+    text-align: right;
+    margin: 0;
+}
+
+.add_task_content {
+    display: inline-block;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 10px;
+    transition: .3s;
+    cursor: default;
+    font-weight: lighter;
+}
+
+.add_task_content:hover {
+    background: #ffffff;
+    color: #ffb0be;
+}
+/*Add Form*/
+.add_task_form {
+    overflow: auto;
+}
+.todo_form {
+    float: left;
+}
+.content_area {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    transition: .3s;
+}
+.todo_form {
+    list-style: none;
+    height: 80px;
+    width: 100%;
+    position: relative;
+    padding: 20px 30px;
+    border-radius: 10px;
+    line-height: 45px;
+    font-size: 25px;
+    color: #ffffff;
+    transition: .3s;
+    background: #ffffff;
+    border: 2px solid #ffb0be;
+}
+
+.todo_form input {
+    float: left;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #ffb0be;
+    width: 230px;
+    height: 34px;
+    outline: 0;
+    color: #ffb0be;
+    font-size: 20px;
+}
+.todo_form input::placeholder {
+    color: #ffb0be;
+    font-style: italic;
+    font-weight: lighter;
+}
+.todo_form button {
+    float: right;
+    width: 90px;
+    height: 35px;
+    background: none;
+    border: 2px solid #ffb0be;
+    color: #ffb0be;
+    font-size: 20px;
+    font-weight: lighter;
+    transition: .3s;
+}
+
+.todo_form button:hover {
+    background: linear-gradient(141deg, #ffb0be 0%, #ffc2a1 75%);;
+    color: #ffffff;
+}
+
+/*Tasks section*/
+.tasks {
+    padding: 10px 0;
+}
+
+.task {
+    list-style: none;
+    height: 55px;
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+    padding: 5px 60px;
+    border-radius: 10px;
+    line-height: 45px;
+    font-size: 25px;
+    font-weight: lighter;
+    color: #ffffff;
+    transition: .3s;
+    background: linear-gradient(141deg, #ffb0be 0%, #ffc2a1 75%);
+    box-shadow: 0 5px 10px rgba(255, 176, 190, 0.25), 0 3px 6px rgba(255, 194, 161, 0.22);
+}
+
+.task:hover {
+    opacity: .8;
+}
+
+.check {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.check:hover {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.check:hover .tick {
+    opacity: 1;
+}
+
+.tick {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    opacity: 0;
+}
+
+.bin {
+    display: inline-block;
+    position: absolute;
+    height: 25px;
+    right: 20px;
+    top: 15px;
+}
+
+.bin img {
+    float: left;
+    height: 25px;
+    transition: .3s;
+}
+
+.bin:hover img {
+    transform: scale(1.2);
+}
+
+/*Done items*/
+.tasks .done {
+    color: #fcfcfc;
+    background: #e2e2e2;
+    text-decoration: line-through;
+    box-shadow: 0 5px 10px rgba(221, 221, 221, 0.25), 0 3px 6px rgba(195, 195, 195, 0.56);
+}
+
+.tasks .done:hover {
+    opacity: 1;
+}
+
+.done .check {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.done .tick {
+    opacity: 1;
+}
+
+.deleted {
+    display: none;
+}

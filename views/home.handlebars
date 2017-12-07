@@ -1,0 +1,47 @@
+<div class="todo_app">
+    <div class="add_task">
+        <h2>To Do List</h2>
+        <p><span class="add_task_content">Add a Task +</span></p>
+    </div>
+    <div class="content_area">
+        <div class="add_task_form">
+            <form class="todo_form">
+                <input type="text" placeholder="Todo item" class="input">
+                <button type="submit" class="submit">Add</button>
+            </form>
+        </div>
+        <ul class="tasks">
+            <li class="task"><span class="check"><img src="img/tick.svg" alt="Check tick" class="tick"></span>Cooking <span class="bin"><img src="img/bin.svg" alt="Bin image"></span></li>
+            <li class="task"><span class="check"><img src="img/tick.svg" alt="Check tick" class="tick"></span>Sleep <span class="bin"><img src="img/bin.svg" alt="Bin image"></span></li>
+            <li class="task"><span class="check"><img src="img/tick.svg" alt="Check tick" class="tick"></span>Football <span class="bin"><img src="img/bin.svg" alt="Bin image"></span></li>
+        </ul>
+    </div>
+</div>
+<script>
+    //add task
+    document.querySelector('.add_task_content').addEventListener('click', function () {
+        var content = document.querySelector('.content_area')
+
+        if(content.style.top === "0px" || content.style.top === "") {
+            content.style.top = '120px'
+        } else {
+            content.style.top = "0px"
+        }
+    })
+    //make item done
+    document.querySelectorAll('.task').forEach(function (item) {
+        //make item done
+        console.log('y: ' + item.getBoundingClientRect().y)
+        item.querySelector('.check').addEventListener('click', function () {
+            if(item.classList.contains('done')) {
+                item.classList.remove("done");
+            } else {
+                item.className += " done"
+            }
+        })
+        //remove task
+        item.querySelector('.bin').addEventListener('click', function () {
+            item.className += " deleted"
+        })
+    })
+</script>
