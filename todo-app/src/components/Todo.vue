@@ -5,25 +5,9 @@
                 {{todo.task}}
             </div>
             <div class="extra content">
-                    <span class="right floated edit icon" v-on:click="showForm">
-                        <i class="edit icon"></i>
-                    </span>
                     <span class="right floated trash icon" v-on:click="deleteTodo(todo)">
                         <i class="trash icon"></i>
                     </span>
-            </div>
-        </div>
-        <div class="content" v-show="isEditing">
-            <div class="ui form">
-                <div class='field'>
-                    <label>Title</label>
-                    <input type='text' v-model="todo.task" >
-                </div>
-                <div class="ui two button attached buttons">
-                    <button class="ui basic blue button" v-on:click="hideForm">
-                        Close X
-                    </button>
-                </div>
             </div>
         </div>
         <div class="ui bottom attached green basic button" v-show="!isEditing && todo.done" v-on:click="completeTodo(todo)">Completed</div>
@@ -62,6 +46,18 @@
         },
         completeTodo (todo) {
           this.$emit('complete-todo', todo)
+          fetch('http://localhost:3000/tasks/' + todo.id, {
+            method: 'put',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(todo)
+          }).then(response => {
+            response.json().then(data => {
+              console.log('done status changed')
+            })
+          })
         }
       }
     }
