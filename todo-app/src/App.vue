@@ -13,31 +13,27 @@
         TodoList,
         CreateTodo
       },
+      mounted: function () {
+        this.getTodos()
+      },
       methods: {
         createTodo (todo) {
           this.todos.push(todo)
+        },
+        getTodos () {
+          fetch('http://localhost:3000/tasks')
+            .then(response => {
+              response.json().then(data => {
+                this.todos = data
+              })
+            })
         }
       },
       data () {
-        return {
-          todos: [{
-            title: 'Todo A',
-            project: 'Project A',
-            done: false
-          }, {
-            title: 'Todo B',
-            project: 'Project B',
-            done: true
-          }, {
-            title: 'Todo C',
-            project: 'Project C',
-            done: false
-          }, {
-            title: 'Todo D',
-            project: 'Project D',
-            done: false
-          }]
+        var responseData = {
+          todos: []
         }
+        return responseData
       }
     }
 </script>
