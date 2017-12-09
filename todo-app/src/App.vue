@@ -1,25 +1,19 @@
 <template>
     <div id="app">
         <todo-list v-bind:todos="todos"></todo-list>
-        <create-todo v-on:create-todo="createTodo"></create-todo>
     </div>
 </template>
 <script>
     import TodoList from './components/TodoList'
-    import CreateTodo from './components/CreateTodo'
 
     export default {
       components: {
-        TodoList,
-        CreateTodo
+        TodoList
       },
       mounted: function () {
         this.getTodos()
       },
       methods: {
-        createTodo (todo) {
-          this.todos.push(todo)
-        },
         getTodos () {
           fetch('http://localhost:3000/tasks')
             .then(response => {

@@ -1,18 +1,10 @@
 <template>
-    <div class="ui centered card" v-bind:data-id="todo.id">
-        <div class="content" v-show="!isEditing">
-            <div class="header">
-                {{todo.task}}
-            </div>
-            <div class="extra content">
-                    <span class="right floated trash icon" v-on:click="deleteTodo(todo)">
-                        <i class="trash icon"></i>
-                    </span>
-            </div>
-        </div>
-        <div class="ui bottom attached green basic button" v-show="!isEditing && todo.done" v-on:click="completeTodo(todo)">Completed</div>
-        <div class="ui bottom attached red basic button" v-show="!isEditing && !todo.done" v-on:click="completeTodo(todo)">Pending</div>
-    </div>
+    <li class="task" v-bind:data-id="todo.id">
+        <span class="check done" v-show="todo.done" v-on:click="completeTodo(todo)"><img src="../../static/img/tick.svg" alt="Check tick" class="tick"></span>
+        <span class="check" v-show="!todo.done" v-on:click="completeTodo(todo)"></span>
+        {{todo.task}}
+        <span class="bin" v-on:click="deleteTodo(todo)"><img src="../../static/img/bin.svg" alt="Bin image"></span>
+    </li>
 </template>
 
 <script type="text/javascript">
@@ -24,12 +16,6 @@
         }
       },
       methods: {
-        showForm () {
-          this.isEditing = true
-        },
-        hideForm () {
-          this.isEditing = false
-        },
         deleteTodo (todo) {
           this.$emit('delete-todo', todo)
           fetch('http://localhost:3000/tasks/' + todo.id, {

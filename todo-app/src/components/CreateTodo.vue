@@ -1,21 +1,12 @@
 <template>
-    <div class="ui basic content center aligned segment">
-        <button class="ui basic button icon" v-on:click="openForm" v-show="!isCreating">
-            <i class="plus icon"></i>
-        </button>
-        <div class="ui centered card" v-show="isCreating">
-            <div class="content">
-                <div class="ui form">
-                    <div class="field">
-                        <label>Title</label>
-                        <input type="text" v-model="titleText" ref="title" defaultValue="">
-                    </div>
-                    <div class="ui two button attached buttons">
-                        <button class="ui basic blue button" v-on:click="sendForm()">Create</button>
-                        <button class="ui basic red button" v-on:click="closeForm()">Close</button>
-                    </div>
-                </div>
-            </div>
+    <div class="add_task">
+        <h2>To Do List</h2>
+        <p><span class="add_task_content">Add a Task +</span></p>
+        <div class="add_task_form">
+            <form class="todo_form">
+                <input type="text" v-model="titleText" ref="title" defaultValue="" placeholder="Todo item" class="input">
+                <button type="submit" class="submit" v-on:click="sendForm()">Add</button>
+            </form>
         </div>
     </div>
 </template>
@@ -23,12 +14,6 @@
 <script>
     export default {
       methods: {
-        openForm () {
-          this.isCreating = true
-        },
-        closeForm () {
-          this.isCreating = false
-        },
         sendForm () {
           if (this.titleText.length > 0) {
             const title = this.titleText
