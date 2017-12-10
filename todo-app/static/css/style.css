@@ -42,6 +42,8 @@ h2 {
 
 .add_task_content {
     display: inline-block;
+    width: 120px;
+    text-align: center;
     border: 2px solid #ffffff;
     border-radius: 5px;
     padding: 5px 10px;
@@ -80,25 +82,24 @@ h2 {
     border-radius: 10px;
     line-height: 45px;
     font-size: 25px;
-    color: #ffffff;
+    color: #ffb0be;
     transition: .3s;
-    background: #ffffff;
-    border: 2px solid #ffb0be;
+    border: 2px solid #ffffff;
 }
 
 .todo_form input {
     float: left;
     background: none;
     border: none;
-    border-bottom: 2px solid #ffb0be;
+    border-bottom: 2px solid #ffffff;
     width: 230px;
     height: 34px;
     outline: 0;
-    color: #ffb0be;
+    color: #ffffff;
     font-size: 20px;
 }
 .todo_form input::placeholder {
-    color: #ffb0be;
+    color: #ffffff;
     font-style: italic;
     font-weight: lighter;
 }
@@ -107,8 +108,8 @@ h2 {
     width: 90px;
     height: 35px;
     background: none;
-    border: 2px solid #ffb0be;
-    color: #ffb0be;
+    border: 2px solid #ffffff;
+    color: #ffffff;
     font-size: 20px;
     font-weight: lighter;
     transition: .3s;
@@ -116,8 +117,8 @@ h2 {
 }
 
 .todo_form button:hover {
-    background: linear-gradient(141deg, #ffb0be 0%, #ffc2a1 75%);;
-    color: #ffffff;
+    background: #ffffff;
+    color: #ffb0be;
 }
 
 /*Tasks section*/
@@ -188,14 +189,14 @@ h2 {
 }
 
 /*Done items*/
-.tasks .done {
+.content_area .done {
     color: #fcfcfc;
     background: #e2e2e2;
     text-decoration: line-through;
     box-shadow: 0 5px 10px rgba(221, 221, 221, 0.25), 0 3px 6px rgba(195, 195, 195, 0.56);
 }
 
-.tasks .done:hover {
+.content_area .done:hover {
     opacity: 1;
 }
 

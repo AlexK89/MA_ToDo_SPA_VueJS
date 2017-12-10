@@ -10,27 +10,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  <script>
-      document.querySelector('.add_task_content').addEventListener('click', function () {
-          var content = document.querySelector('.content_area')
-          var form = document.querySelector('.add_task_form')
-
-          if(content.style.top === "120px" || content.style.top === "") {
-              form.style.height = '80px'
-              content.style.top = '200px'
-          } else {
-              form.style.height = '0px'
-              content.style.top = "120px"
-          }
-      })
-      //make item done
-      document.querySelectorAll('.task').forEach(function (item) {
-          //make item done
-          console.log(item.querySelector('.check'))
-          item.querySelector('.check').addEventListener('change', function () {
-              alert("hello")
-          })
-      })
-  </script>
+  <script src="./static/js/main.js"></script>
 </html>
 
